@@ -5,7 +5,7 @@
         const initTime = Date.now();
         const tick = 360/26;
         const speed = 1000; // Time for one full rotation of the fast rotor
- 
+
         for (const rotor of allRotors) {
             const row = parseInt(rotor.classList.value.match(/row(\d)/)[1], 10);
             const startPos = row === 2 ? tick * Math.floor(Math.random()*26) : 0;
@@ -13,9 +13,9 @@
             const x = bbox.width/2 + bbox.x;
             const y = bbox.height/2 + bbox.y;
             const wait = row === 0 ? speed/26/1.5 : row === 1 ? speed : speed*26;
- 
+
             rotor.setAttribute("transform", "rotate(" + startPos + ", " + x + ", " + y + ")");
- 
+
             rotors.push({
                 el: rotor,
                 pos: startPos,
@@ -25,7 +25,7 @@
                 wait: wait
             });
         }
- 
+
         setInterval(function() {
             const now = Date.now();
             for (const rotor of rotors) {
